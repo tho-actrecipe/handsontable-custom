@@ -7,3 +7,4 @@ src/3rdparty/walkontable/test/dist/*
 src/3rdparty/walkontable/dist/*
 test/lib/*
 test/dist/*
+tmp/*

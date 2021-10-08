@@ -24,8 +24,8 @@
  * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  * 
- * Version: 6.2.3
- * Release date: 19/12/2018 (built at 01/10/2021 14:29:51)
+ * Version: 6.2.4
+ * Release date: 19/12/2018 (built at 08/10/2021 12:36:37)
  */
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
@@ -159,51 +159,51 @@ module.exports = $export;
 
 
 exports.__esModule = true;
-exports.getParent = getParent;
+exports.HTML_CHARACTERS = void 0;
+exports.addClass = addClass;
+exports.addEvent = addEvent;
 exports.closest = closest;
 exports.closestDown = closestDown;
-exports.isChildOf = isChildOf;
-exports.isChildOfWebComponentTable = isChildOfWebComponentTable;
-exports.polymerWrap = polymerWrap;
-exports.polymerUnwrap = polymerUnwrap;
-exports.index = index;
-exports.overlayContainsElement = overlayContainsElement;
-exports.hasClass = hasClass;
-exports.addClass = addClass;
-exports.removeClass = removeClass;
-exports.removeTextNodes = removeTextNodes;
 exports.empty = empty;
 exports.fastInnerHTML = fastInnerHTML;
 exports.fastInnerText = fastInnerText;
-exports.isVisible = isVisible;
-exports.offset = offset;
-exports.getWindowScrollTop = getWindowScrollTop;
-exports.getWindowScrollLeft = getWindowScrollLeft;
-exports.getScrollTop = getScrollTop;
-exports.getScrollLeft = getScrollLeft;
-exports.getScrollableElement = getScrollableElement;
-exports.getTrimmingContainer = getTrimmingContainer;
-exports.getStyle = getStyle;
-exports.getComputedStyle = getComputedStyle;
-exports.outerWidth = outerWidth;
-exports.outerHeight = outerHeight;
-exports.innerHeight = innerHeight;
-exports.innerWidth = innerWidth;
-exports.addEvent = addEvent;
-exports.removeEvent = removeEvent;
 exports.getCaretPosition = getCaretPosition;
+exports.getComputedStyle = getComputedStyle;
+exports.getCssTransform = getCssTransform;
+exports.getParent = getParent;
+exports.getScrollLeft = getScrollLeft;
+exports.getScrollTop = getScrollTop;
+exports.getScrollableElement = getScrollableElement;
+exports.getScrollbarWidth = getScrollbarWidth;
 exports.getSelectionEndPosition = getSelectionEndPosition;
 exports.getSelectionText = getSelectionText;
-exports.setCaretPosition = setCaretPosition;
-exports.getScrollbarWidth = getScrollbarWidth;
-exports.hasVerticalScrollbar = hasVerticalScrollbar;
+exports.getStyle = getStyle;
+exports.getTrimmingContainer = getTrimmingContainer;
+exports.getWindowScrollLeft = getWindowScrollLeft;
+exports.getWindowScrollTop = getWindowScrollTop;
+exports.hasClass = hasClass;
 exports.hasHorizontalScrollbar = hasHorizontalScrollbar;
-exports.setOverlayPosition = setOverlayPosition;
-exports.getCssTransform = getCssTransform;
-exports.resetCssTransform = resetCssTransform;
+exports.hasVerticalScrollbar = hasVerticalScrollbar;
+exports.index = index;
+exports.innerHeight = innerHeight;
+exports.innerWidth = innerWidth;
+exports.isChildOf = isChildOf;
+exports.isChildOfWebComponentTable = isChildOfWebComponentTable;
 exports.isInput = isInput;
 exports.isOutsideInput = isOutsideInput;
-exports.HTML_CHARACTERS = void 0;
+exports.isVisible = isVisible;
+exports.offset = offset;
+exports.outerHeight = outerHeight;
+exports.outerWidth = outerWidth;
+exports.overlayContainsElement = overlayContainsElement;
+exports.polymerUnwrap = polymerUnwrap;
+exports.polymerWrap = polymerWrap;
+exports.removeClass = removeClass;
+exports.removeEvent = removeEvent;
+exports.removeTextNodes = removeTextNodes;
+exports.resetCssTransform = resetCssTransform;
+exports.setCaretPosition = setCaretPosition;
+exports.setOverlayPosition = setOverlayPosition;
 
 var _browser = __webpack_require__(42);
 
@@ -1290,21 +1290,21 @@ function isOutsideInput(element) {
 
 
 exports.__esModule = true;
-exports.duckSchema = duckSchema;
-exports.inherit = inherit;
-exports.extend = extend;
-exports.deepExtend = deepExtend;
-exports.deepClone = deepClone;
 exports.clone = clone;
-exports.mixin = mixin;
-exports.isObjectEqual = isObjectEqual;
-exports.isObject = isObject;
-exports.defineGetter = defineGetter;
-exports.objectEach = objectEach;
-exports.getProperty = getProperty;
-exports.deepObjectSize = deepObjectSize;
 exports.createObjectPropListener = createObjectPropListener;
+exports.deepClone = deepClone;
+exports.deepExtend = deepExtend;
+exports.deepObjectSize = deepObjectSize;
+exports.defineGetter = defineGetter;
+exports.duckSchema = duckSchema;
+exports.extend = extend;
+exports.getProperty = getProperty;
 exports.hasOwnProperty = hasOwnProperty;
+exports.inherit = inherit;
+exports.isObject = isObject;
+exports.isObjectEqual = isObjectEqual;
+exports.mixin = mixin;
+exports.objectEach = objectEach;
 
 var _array = __webpack_require__(3);
 
@@ -1657,19 +1657,19 @@ function hasOwnProperty(object, key) {
 
 
 exports.__esModule = true;
-exports.to2dArray = to2dArray;
-exports.extendArray = extendArray;
-exports.pivot = pivot;
-exports.arrayReduce = arrayReduce;
-exports.arrayFilter = arrayFilter;
-exports.arrayMap = arrayMap;
+exports.arrayAvg = arrayAvg;
 exports.arrayEach = arrayEach;
-exports.arraySum = arraySum;
+exports.arrayFilter = arrayFilter;
+exports.arrayFlatten = arrayFlatten;
+exports.arrayMap = arrayMap;
 exports.arrayMax = arrayMax;
 exports.arrayMin = arrayMin;
-exports.arrayAvg = arrayAvg;
-exports.arrayFlatten = arrayFlatten;
+exports.arrayReduce = arrayReduce;
+exports.arraySum = arraySum;
 exports.arrayUnique = arrayUnique;
+exports.extendArray = extendArray;
+exports.pivot = pivot;
+exports.to2dArray = to2dArray;
 
 function to2dArray(arr) {
   var ilen = arr.length;
@@ -2172,6 +2172,8 @@ function rangeEach(rangeFrom, rangeTo, iteratee) {
   } else {
     index = rangeFrom - 1;
   }
+  /* eslint-disable-next-line no-plusplus */
+
 
   while (++index <= rangeTo) {
     if (iteratee(index) === false) {
@@ -2195,6 +2197,8 @@ function rangeEachReverse(rangeFrom, rangeTo, iteratee) {
     iteratee = rangeTo;
     rangeTo = 0;
   }
+  /* eslint-disable-next-line no-plusplus */
+
 
   while (--index >= rangeTo) {
     if (iteratee(index) === false) {
@@ -2225,8 +2229,8 @@ function valueAccordingPercent(value, percent) {
 
 
 exports.__esModule = true;
-exports.getListenersCounter = getListenersCounter;
 exports.default = void 0;
+exports.getListenersCounter = getListenersCounter;
 
 var _element = __webpack_require__(1);
 
@@ -2525,7 +2529,7 @@ function getListenersCounter() {
 
 
 exports.__esModule = true;
-exports.FILTERS_BUTTONS_PLACEHOLDER_SECOND_VALUE = exports.FILTERS_BUTTONS_PLACEHOLDER_VALUE = exports.FILTERS_BUTTONS_PLACEHOLDER_SEARCH = exports.FILTERS_BUTTONS_CANCEL = exports.FILTERS_BUTTONS_OK = exports.FILTERS_BUTTONS_CLEAR = exports.FILTERS_BUTTONS_SELECT_ALL = exports.FILTERS_VALUES_BLANK_CELLS = exports.FILTERS_LABELS_DISJUNCTION = exports.FILTERS_LABELS_CONJUNCTION = exports.FILTERS_DIVS_FILTER_BY_VALUE = exports.FILTERS_DIVS_FILTER_BY_CONDITION = exports.FILTERS_CONDITIONS_YESTERDAY = exports.FILTERS_CONDITIONS_TOMORROW = exports.FILTERS_CONDITIONS_TODAY = exports.FILTERS_CONDITIONS_BEFORE = exports.FILTERS_CONDITIONS_AFTER = exports.FILTERS_CONDITIONS_NOT_BETWEEN = exports.FILTERS_CONDITIONS_BETWEEN = exports.FILTERS_CONDITIONS_LESS_THAN_OR_EQUAL = exports.FILTERS_CONDITIONS_LESS_THAN = exports.FILTERS_CONDITIONS_GREATER_THAN_OR_EQUAL = exports.FILTERS_CONDITIONS_GREATER_THAN = exports.FILTERS_CONDITIONS_BY_VALUE = exports.FILTERS_CONDITIONS_NOT_CONTAIN = exports.FILTERS_CONDITIONS_CONTAINS = exports.FILTERS_CONDITIONS_ENDS_WITH = exports.FILTERS_CONDITIONS_BEGINS_WITH = exports.FILTERS_CONDITIONS_NOT_EQUAL = exports.FILTERS_CONDITIONS_EQUAL = exports.FILTERS_CONDITIONS_NOT_EMPTY = exports.FILTERS_CONDITIONS_EMPTY = exports.FILTERS_CONDITIONS_NONE = exports.FILTERS_CONDITIONS_NAMESPACE = exports.FILTERS_NAMESPACE = exports.CONTEXTMENU_ITEMS_SHOW_ROW = exports.CONTEXTMENU_ITEMS_HIDE_ROW = exports.CONTEXTMENU_ITEMS_SHOW_COLUMN = exports.CONTEXTMENU_ITEMS_HIDE_COLUMN = exports.CONTEXTMENU_ITEMS_NESTED_ROWS_DETACH_CHILD = exports.CONTEXTMENU_ITEMS_NESTED_ROWS_INSERT_CHILD = exports.CONTEXTMENU_ITEMS_REMOVE_BORDERS = exports.CONTEXTMENU_ITEMS_BORDERS_LEFT = exports.CONTEXTMENU_ITEMS_BORDERS_BOTTOM = exports.CONTEXTMENU_ITEMS_BORDERS_RIGHT = exports.CONTEXTMENU_ITEMS_BORDERS_TOP = exports.CONTEXTMENU_ITEMS_BORDERS = exports.CONTEXTMENU_ITEMS_ALIGNMENT_BOTTOM = exports.CONTEXTMENU_ITEMS_ALIGNMENT_MIDDLE = exports.CONTEXTMENU_ITEMS_ALIGNMENT_TOP = exports.CONTEXTMENU_ITEMS_ALIGNMENT_JUSTIFY = exports.CONTEXTMENU_ITEMS_ALIGNMENT_RIGHT = exports.CONTEXTMENU_ITEMS_ALIGNMENT_CENTER = exports.CONTEXTMENU_ITEMS_ALIGNMENT_LEFT = exports.CONTEXTMENU_ITEMS_ALIGNMENT = exports.CONTEXTMENU_ITEMS_READ_ONLY_COMMENT = exports.CONTEXTMENU_ITEMS_REMOVE_COMMENT = exports.CONTEXTMENU_ITEMS_EDIT_COMMENT = exports.CONTEXTMENU_ITEMS_ADD_COMMENT = exports.CONTEXTMENU_ITEMS_UNMERGE_CELLS = exports.CONTEXTMENU_ITEMS_MERGE_CELLS = exports.CONTEXTMENU_ITEMS_UNFREEZE_COLUMN = exports.CONTEXTMENU_ITEMS_FREEZE_COLUMN = exports.CONTEXTMENU_ITEMS_CUT = exports.CONTEXTMENU_ITEMS_COPY = exports.CONTEXTMENU_ITEMS_CLEAR_COLUMN = exports.CONTEXTMENU_ITEMS_READ_ONLY = exports.CONTEXTMENU_ITEMS_REDO = exports.CONTEXTMENU_ITEMS_UNDO = exports.CONTEXTMENU_ITEMS_REMOVE_COLUMN = exports.CONTEXTMENU_ITEMS_REMOVE_ROW = exports.CONTEXTMENU_ITEMS_INSERT_RIGHT = exports.CONTEXTMENU_ITEMS_INSERT_LEFT = exports.CONTEXTMENU_ITEMS_ROW_BELOW = exports.CONTEXTMENU_ITEMS_ROW_ABOVE = exports.CONTEXT_MENU_ITEMS_NAMESPACE = void 0;
+exports.FILTERS_VALUES_BLANK_CELLS = exports.FILTERS_NAMESPACE = exports.FILTERS_LABELS_DISJUNCTION = exports.FILTERS_LABELS_CONJUNCTION = exports.FILTERS_DIVS_FILTER_BY_VALUE = exports.FILTERS_DIVS_FILTER_BY_CONDITION = exports.FILTERS_CONDITIONS_YESTERDAY = exports.FILTERS_CONDITIONS_TOMORROW = exports.FILTERS_CONDITIONS_TODAY = exports.FILTERS_CONDITIONS_NOT_EQUAL = exports.FILTERS_CONDITIONS_NOT_EMPTY = exports.FILTERS_CONDITIONS_NOT_CONTAIN = exports.FILTERS_CONDITIONS_NOT_BETWEEN = exports.FILTERS_CONDITIONS_NONE = exports.FILTERS_CONDITIONS_NAMESPACE = exports.FILTERS_CONDITIONS_LESS_THAN_OR_EQUAL = exports.FILTERS_CONDITIONS_LESS_THAN = exports.FILTERS_CONDITIONS_GREATER_THAN_OR_EQUAL = exports.FILTERS_CONDITIONS_GREATER_THAN = exports.FILTERS_CONDITIONS_EQUAL = exports.FILTERS_CONDITIONS_ENDS_WITH = exports.FILTERS_CONDITIONS_EMPTY = exports.FILTERS_CONDITIONS_CONTAINS = exports.FILTERS_CONDITIONS_BY_VALUE = exports.FILTERS_CONDITIONS_BETWEEN = exports.FILTERS_CONDITIONS_BEGINS_WITH = exports.FILTERS_CONDITIONS_BEFORE = exports.FILTERS_CONDITIONS_AFTER = exports.FILTERS_BUTTONS_SELECT_ALL = exports.FILTERS_BUTTONS_PLACEHOLDER_VALUE = exports.FILTERS_BUTTONS_PLACEHOLDER_SECOND_VALUE = exports.FILTERS_BUTTONS_PLACEHOLDER_SEARCH = exports.FILTERS_BUTTONS_OK = exports.FILTERS_BUTTONS_CLEAR = exports.FILTERS_BUTTONS_CANCEL = exports.CONTEXT_MENU_ITEMS_NAMESPACE = exports.CONTEXTMENU_ITEMS_UNMERGE_CELLS = exports.CONTEXTMENU_ITEMS_UNFREEZE_COLUMN = exports.CONTEXTMENU_ITEMS_UNDO = exports.CONTEXTMENU_ITEMS_SHOW_ROW = exports.CONTEXTMENU_ITEMS_SHOW_COLUMN = exports.CONTEXTMENU_ITEMS_ROW_BELOW = exports.CONTEXTMENU_ITEMS_ROW_ABOVE = exports.CONTEXTMENU_ITEMS_REMOVE_ROW = exports.CONTEXTMENU_ITEMS_REMOVE_COMMENT = exports.CONTEXTMENU_ITEMS_REMOVE_COLUMN = exports.CONTEXTMENU_ITEMS_REMOVE_BORDERS = exports.CONTEXTMENU_ITEMS_REDO = exports.CONTEXTMENU_ITEMS_READ_ONLY_COMMENT = exports.CONTEXTMENU_ITEMS_READ_ONLY = exports.CONTEXTMENU_ITEMS_NESTED_ROWS_INSERT_CHILD = exports.CONTEXTMENU_ITEMS_NESTED_ROWS_DETACH_CHILD = exports.CONTEXTMENU_ITEMS_MERGE_CELLS = exports.CONTEXTMENU_ITEMS_INSERT_RIGHT = exports.CONTEXTMENU_ITEMS_INSERT_LEFT = exports.CONTEXTMENU_ITEMS_HIDE_ROW = exports.CONTEXTMENU_ITEMS_HIDE_COLUMN = exports.CONTEXTMENU_ITEMS_FREEZE_COLUMN = exports.CONTEXTMENU_ITEMS_EDIT_COMMENT = exports.CONTEXTMENU_ITEMS_CUT = exports.CONTEXTMENU_ITEMS_COPY = exports.CONTEXTMENU_ITEMS_CLEAR_COLUMN = exports.CONTEXTMENU_ITEMS_BORDERS_TOP = exports.CONTEXTMENU_ITEMS_BORDERS_RIGHT = exports.CONTEXTMENU_ITEMS_BORDERS_LEFT = exports.CONTEXTMENU_ITEMS_BORDERS_BOTTOM = exports.CONTEXTMENU_ITEMS_BORDERS = exports.CONTEXTMENU_ITEMS_ALIGNMENT_TOP = exports.CONTEXTMENU_ITEMS_ALIGNMENT_RIGHT = exports.CONTEXTMENU_ITEMS_ALIGNMENT_MIDDLE = exports.CONTEXTMENU_ITEMS_ALIGNMENT_LEFT = exports.CONTEXTMENU_ITEMS_ALIGNMENT_JUSTIFY = exports.CONTEXTMENU_ITEMS_ALIGNMENT_CENTER = exports.CONTEXTMENU_ITEMS_ALIGNMENT_BOTTOM = exports.CONTEXTMENU_ITEMS_ALIGNMENT = exports.CONTEXTMENU_ITEMS_ADD_COMMENT = void 0;
 
 /**
  * Constants for parts of translation.
@@ -2708,10 +2712,10 @@ $exports.store = store;
 
 
 exports.__esModule = true;
-exports.registerPlugin = registerPlugin;
 exports.getPlugin = getPlugin;
-exports.getRegistredPluginNames = getRegistredPluginNames;
 exports.getPluginName = getPluginName;
+exports.getRegistredPluginNames = getRegistredPluginNames;
+exports.registerPlugin = registerPlugin;
 
 var _pluginHooks = _interopRequireDefault(__webpack_require__(23));
 
@@ -2831,12 +2835,12 @@ module.exports = function (it) {
 
 
 exports.__esModule = true;
-exports.stringify = stringify;
+exports._injectProductInfo = _injectProductInfo;
 exports.isDefined = isDefined;
-exports.isUndefined = isUndefined;
 exports.isEmpty = isEmpty;
 exports.isRegExp = isRegExp;
-exports._injectProductInfo = _injectProductInfo;
+exports.isUndefined = isUndefined;
+exports.stringify = stringify;
 
 var _moment = _interopRequireDefault(__webpack_require__(76));
 
@@ -3332,13 +3336,13 @@ exports.f = __webpack_require__(18) ? Object.defineProperty : function definePro
 
 
 exports.__esModule = true;
-exports.stopImmediatePropagation = stopImmediatePropagation;
 exports.isImmediatePropagationStopped = isImmediatePropagationStopped;
-exports.stopPropagation = stopPropagation;
+exports.isLeftClick = isLeftClick;
+exports.isRightClick = isRightClick;
 exports.pageX = pageX;
 exports.pageY = pageY;
-exports.isRightClick = isRightClick;
-exports.isLeftClick = isLeftClick;
+exports.stopImmediatePropagation = stopImmediatePropagation;
+exports.stopPropagation = stopPropagation;
 
 var _element = __webpack_require__(1);
 
@@ -3439,8 +3443,9 @@ function isLeftClick(event) {
 
 
 exports.__esModule = true;
+exports.getRegisteredRenderers = exports.getRegisteredRendererNames = void 0;
 exports.getRenderer = _getItem;
-exports.getRegisteredRenderers = exports.getRegisteredRendererNames = exports.hasRenderer = exports.registerRenderer = void 0;
+exports.registerRenderer = exports.hasRenderer = void 0;
 
 var _staticRegister2 = _interopRequireDefault(__webpack_require__(46));
 
@@ -5561,9 +5566,9 @@ module.exports = function (NAME, exec) {
 exports.__esModule = true;
 exports.RegisteredEditor = RegisteredEditor;
 exports.getEditorInstance = exports._getEditorInstance = _getEditorInstance;
-exports.registerEditor = _register;
 exports.getEditor = _getItem;
-exports.getRegisteredEditors = exports.getRegisteredEditorNames = exports.hasEditor = void 0;
+exports.hasEditor = exports.getRegisteredEditors = exports.getRegisteredEditorNames = void 0;
+exports.registerEditor = _register;
 
 var _staticRegister2 = _interopRequireDefault(__webpack_require__(46));
 
@@ -5754,20 +5759,20 @@ module.exports = function (it) {
 
 
 exports.__esModule = true;
-exports.normalizeSelection = normalizeSelection;
-exports.isSeparator = isSeparator;
-exports.hasSubMenu = hasSubMenu;
-exports.isDisabled = isDisabled;
-exports.isSelectionDisabled = isSelectionDisabled;
-exports.getValidSelection = getValidSelection;
-exports.prepareVerticalAlignClass = prepareVerticalAlignClass;
-exports.prepareHorizontalAlignClass = prepareHorizontalAlignClass;
-exports.getAlignmentClasses = getAlignmentClasses;
 exports.align = align;
 exports.checkSelectionConsistency = checkSelectionConsistency;
-exports.markLabelAsSelected = markLabelAsSelected;
-exports.isItemHidden = isItemHidden;
 exports.filterSeparators = filterSeparators;
+exports.getAlignmentClasses = getAlignmentClasses;
+exports.getValidSelection = getValidSelection;
+exports.hasSubMenu = hasSubMenu;
+exports.isDisabled = isDisabled;
+exports.isItemHidden = isItemHidden;
+exports.isSelectionDisabled = isSelectionDisabled;
+exports.isSeparator = isSeparator;
+exports.markLabelAsSelected = markLabelAsSelected;
+exports.normalizeSelection = normalizeSelection;
+exports.prepareHorizontalAlignClass = prepareHorizontalAlignClass;
+exports.prepareVerticalAlignClass = prepareVerticalAlignClass;
 
 var _array = __webpack_require__(3);
 
@@ -5979,12 +5984,12 @@ module.exports = function (method, arg) {
 
 
 exports.__esModule = true;
-exports.isPrintableChar = isPrintableChar;
-exports.isMetaKey = isMetaKey;
+exports.KEY_CODES = void 0;
 exports.isCtrlKey = isCtrlKey;
 exports.isCtrlMetaKey = isCtrlMetaKey;
 exports.isKey = isKey;
-exports.KEY_CODES = void 0;
+exports.isMetaKey = isMetaKey;
+exports.isPrintableChar = isPrintableChar;
 
 var _array = __webpack_require__(3);
 
@@ -6049,8 +6054,13 @@ var KEY_CODES = {
 exports.KEY_CODES = KEY_CODES;
 
 function isPrintableChar(keyCode) {
-  return keyCode === 32 || keyCode >= 48 && keyCode <= 57 || keyCode >= 96 && keyCode <= 111 || keyCode >= 186 && keyCode <= 192 || keyCode >= 219 && keyCode <= 222 || // []{}\|"'
-  keyCode >= 226 || keyCode >= 65 && keyCode <= 90; // a-z
+  return keyCode === 32 || // space
+  keyCode >= 48 && keyCode <= 57 || // 0-9
+  keyCode >= 96 && keyCode <= 111 || // numpad
+  keyCode >= 186 && keyCode <= 192 || // ;=,-./`
+  keyCode >= 219 && keyCode <= 222 || // []{}\|"'
+  keyCode >= 226 || // special chars (229 for Asian chars)
+  keyCode >= 65 && keyCode <= 90; // a-z
 }
 /**
  * @param {Number} keyCode
@@ -6766,7 +6776,6 @@ if (__webpack_require__(18)) {
 
 
 exports.__esModule = true;
-exports.setBrowserMeta = setBrowserMeta;
 exports.isChrome = isChrome;
 exports.isEdge = isEdge;
 exports.isIE = isIE;
@@ -6775,6 +6784,7 @@ exports.isIE9 = isIE9;
 exports.isMSBrowser = isMSBrowser;
 exports.isMobileBrowser = isMobileBrowser;
 exports.isSafari = isSafari;
+exports.setBrowserMeta = setBrowserMeta;
 
 var _object = __webpack_require__(2);
 
@@ -7273,8 +7283,8 @@ var meta = module.exports = {
 
 
 exports.__esModule = true;
-exports.default = staticRegister;
 exports.collection = void 0;
+exports.default = staticRegister;
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
@@ -7369,12 +7379,12 @@ function staticRegister() {
 
 
 exports.__esModule = true;
-exports.requestAnimationFrame = requestAnimationFrame;
 exports.cancelAnimationFrame = cancelAnimationFrame;
+exports.getComparisonFunction = getComparisonFunction;
+exports.hasCaptionProblem = hasCaptionProblem;
 exports.isTouchSupported = isTouchSupported;
 exports.isWebComponentSupportedNatively = isWebComponentSupportedNatively;
-exports.hasCaptionProblem = hasCaptionProblem;
-exports.getComparisonFunction = getComparisonFunction;
+exports.requestAnimationFrame = requestAnimationFrame;
 
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -7517,12 +7527,12 @@ function getComparisonFunction(language) {
 
 
 exports.__esModule = true;
-exports.toUpperCaseFirst = toUpperCaseFirst;
 exports.equalsIgnoreCase = equalsIgnoreCase;
-exports.randomString = randomString;
 exports.isPercentValue = isPercentValue;
-exports.substitute = substitute;
+exports.randomString = randomString;
 exports.stripTags = stripTags;
+exports.substitute = substitute;
+exports.toUpperCaseFirst = toUpperCaseFirst;
 
 var _mixed = __webpack_require__(15);
 
@@ -7629,8 +7639,9 @@ function stripTags(string) {
 
 
 exports.__esModule = true;
+exports.getRegisteredValidators = exports.getRegisteredValidatorNames = void 0;
 exports.getValidator = _getItem;
-exports.getRegisteredValidators = exports.getRegisteredValidatorNames = exports.hasValidator = exports.registerValidator = void 0;
+exports.registerValidator = exports.hasValidator = void 0;
 
 var _staticRegister2 = _interopRequireDefault(__webpack_require__(46));
 
@@ -7881,14 +7892,14 @@ function toSingleLine(strings) {
 
 
 exports.__esModule = true;
-exports.isFunction = isFunction;
-exports.throttle = throttle;
-exports.throttleAfterHits = throttleAfterHits;
-exports.debounce = debounce;
-exports.pipe = pipe;
-exports.partial = partial;
 exports.curry = curry;
 exports.curryRight = curryRight;
+exports.debounce = debounce;
+exports.isFunction = isFunction;
+exports.partial = partial;
+exports.pipe = pipe;
+exports.throttle = throttle;
+exports.throttleAfterHits = throttleAfterHits;
 
 var _array = __webpack_require__(3);
 
@@ -8360,13 +8371,13 @@ exports.default = _default;
 
 
 exports.__esModule = true;
-exports.createId = createId;
+exports.checkSelectionBorders = checkSelectionBorders;
 exports.createDefaultCustomBorder = createDefaultCustomBorder;
-exports.createSingleEmptyBorder = createSingleEmptyBorder;
 exports.createDefaultHtBorder = createDefaultHtBorder;
 exports.createEmptyBorders = createEmptyBorders;
+exports.createId = createId;
+exports.createSingleEmptyBorder = createSingleEmptyBorder;
 exports.extendDefaultBorder = extendDefaultBorder;
-exports.checkSelectionBorders = checkSelectionBorders;
 exports.markSelected = markSelected;
 
 var _object = __webpack_require__(2);
@@ -9061,10 +9072,10 @@ module.exports = __WEBPACK_EXTERNAL_MODULE_76__;
 
 
 exports.__esModule = true;
+exports.error = error;
+exports.info = info;
 exports.log = log;
 exports.warn = warn;
-exports.info = info;
-exports.error = error;
 
 var _mixed = __webpack_require__(15);
 
@@ -10019,12 +10030,12 @@ module.exports = {
 
 
 exports.__esModule = true;
-exports.registerLanguageDictionary = registerLanguage;
-exports.getLanguageDictionary = getLanguage;
-exports.hasLanguageDictionary = hasLanguage;
-exports.getDefaultLanguageDictionary = getDefaultLanguage;
-exports.getLanguagesDictionaries = getLanguages;
 exports.DEFAULT_LANGUAGE_CODE = void 0;
+exports.getDefaultLanguageDictionary = getDefaultLanguage;
+exports.getLanguageDictionary = getLanguage;
+exports.getLanguagesDictionaries = getLanguages;
+exports.hasLanguageDictionary = hasLanguage;
+exports.registerLanguageDictionary = registerLanguage;
 
 var _object = __webpack_require__(2);
 
@@ -10141,12 +10152,12 @@ registerLanguage(_enUS.default);
 
 
 exports.__esModule = true;
+exports.SELECTION_TYPE_UNRECOGNIZED = exports.SELECTION_TYPE_OBJECT = exports.SELECTION_TYPE_EMPTY = exports.SELECTION_TYPE_ARRAY = exports.SELECTION_TYPES = void 0;
 exports.detectSelectionType = detectSelectionType;
+exports.isValidCoord = isValidCoord;
 exports.normalizeSelectionFactory = normalizeSelectionFactory;
 exports.transformSelectionToColumnDistance = transformSelectionToColumnDistance;
 exports.transformSelectionToRowDistance = transformSelectionToRowDistance;
-exports.isValidCoord = isValidCoord;
-exports.SELECTION_TYPES = exports.SELECTION_TYPE_OBJECT = exports.SELECTION_TYPE_ARRAY = exports.SELECTION_TYPE_EMPTY = exports.SELECTION_TYPE_UNRECOGNIZED = void 0;
 
 var _src = __webpack_require__(8);
 
@@ -11271,9 +11282,9 @@ exports[DATA_VIEW] = $DataView;
 
 
 exports.__esModule = true;
-exports.registerCellType = _register;
 exports.getCellType = _getItem;
-exports.getRegisteredCellTypes = exports.getRegisteredCellTypeNames = exports.hasCellType = void 0;
+exports.hasCellType = exports.getRegisteredCellTypes = exports.getRegisteredCellTypeNames = void 0;
+exports.registerCellType = _register;
 
 var _staticRegister2 = _interopRequireDefault(__webpack_require__(46));
 
@@ -15307,13 +15318,13 @@ function columnFactory(GridSettings, conflictList) {
 
 
 exports.__esModule = true;
-exports.spreadsheetColumnLabel = spreadsheetColumnLabel;
-exports.spreadsheetColumnIndex = spreadsheetColumnIndex;
+exports.cellMethodLookupFactory = cellMethodLookupFactory;
+exports.createEmptySpreadsheetData = createEmptySpreadsheetData;
 exports.createSpreadsheetData = createSpreadsheetData;
 exports.createSpreadsheetObjectData = createSpreadsheetObjectData;
-exports.createEmptySpreadsheetData = createEmptySpreadsheetData;
+exports.spreadsheetColumnIndex = spreadsheetColumnIndex;
+exports.spreadsheetColumnLabel = spreadsheetColumnLabel;
 exports.translateRowsToColumns = translateRowsToColumns;
-exports.cellMethodLookupFactory = cellMethodLookupFactory;
 
 var _cellTypes = __webpack_require__(119);
 
@@ -16381,8 +16392,8 @@ exports.default = _default;
 
 
 exports.__esModule = true;
-exports.default = separatorItem;
 exports.KEY = void 0;
+exports.default = separatorItem;
 var KEY = '---------';
 exports.KEY = KEY;
 
@@ -16402,9 +16413,9 @@ function separatorItem() {
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 exports.__esModule = true;
-exports.predefinedItems = predefinedItems;
+exports.UNDO = exports.SEPARATOR = exports.ROW_BELOW = exports.ROW_ABOVE = exports.REMOVE_ROW = exports.REMOVE_COLUMN = exports.REDO = exports.READ_ONLY = exports.ITEMS = exports.COLUMN_RIGHT = exports.COLUMN_LEFT = exports.CLEAR_COLUMN = exports.ALIGNMENT = void 0;
 exports.addItem = addItem;
-exports.ITEMS = exports.UNDO = exports.SEPARATOR = exports.ROW_BELOW = exports.ROW_ABOVE = exports.REMOVE_ROW = exports.REMOVE_COLUMN = exports.REDO = exports.READ_ONLY = exports.COLUMN_RIGHT = exports.COLUMN_LEFT = exports.CLEAR_COLUMN = exports.ALIGNMENT = void 0;
+exports.predefinedItems = predefinedItems;
 
 var _object = __webpack_require__(2);
 
@@ -24973,9 +24984,9 @@ function getNormalizedDate(dateString) {
 
 
 exports.__esModule = true;
+exports.handleMouseEvent = handleMouseEvent;
 exports.mouseDown = mouseDown;
 exports.mouseOver = mouseOver;
-exports.handleMouseEvent = handleMouseEvent;
 
 var _event = __webpack_require__(20);
 
@@ -25120,10 +25131,10 @@ function handleMouseEvent(event, _ref3) {
 
 
 exports.__esModule = true;
-exports.registerIdentity = registerIdentity;
-exports.getTranslator = getTranslator;
-exports.getIdentity = getIdentity;
 exports.RecordTranslator = void 0;
+exports.getIdentity = getIdentity;
+exports.getTranslator = getTranslator;
+exports.registerIdentity = registerIdentity;
 
 var _core = _interopRequireDefault(__webpack_require__(120));
 
@@ -25309,10 +25320,11 @@ function getIdentity(identity) {
 
 
 exports.__esModule = true;
-exports.registerAsRootInstance = registerAsRootInstance;
 exports.hasValidParameter = hasValidParameter;
+exports.holder = void 0;
 exports.isRootInstance = isRootInstance;
-exports.rootInstanceSymbol = exports.holder = void 0;
+exports.registerAsRootInstance = registerAsRootInstance;
+exports.rootInstanceSymbol = void 0;
 var holder = new WeakMap();
 exports.holder = holder;
 var rootInstanceSymbol = Symbol('rootInstance');
@@ -28219,10 +28231,10 @@ function getFormattedPhrase(phrasePropositions, argumentsForFormatters) {
 
 
 exports.__esModule = true;
-exports.extendNotExistingKeys = extendNotExistingKeys;
-exports.createCellHeadersRange = createCellHeadersRange;
-exports.normalizeLanguageCode = normalizeLanguageCode;
 exports.applyLanguageSetting = applyLanguageSetting;
+exports.createCellHeadersRange = createCellHeadersRange;
+exports.extendNotExistingKeys = extendNotExistingKeys;
+exports.normalizeLanguageCode = normalizeLanguageCode;
 exports.warnUserAboutLanguageRegistration = warnUserAboutLanguageRegistration;
 
 var _mixed = __webpack_require__(15);
@@ -28373,7 +28385,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 
 exports.__esModule = true;
-exports.default = exports.CUSTOM_SELECTION = exports.HEADER_TYPE = exports.FILL_TYPE = exports.CELL_TYPE = exports.AREA_TYPE = exports.ACTIVE_HEADER_TYPE = void 0;
+exports.default = exports.HEADER_TYPE = exports.FILL_TYPE = exports.CUSTOM_SELECTION = exports.CELL_TYPE = exports.AREA_TYPE = exports.ACTIVE_HEADER_TYPE = void 0;
 
 var _types = __webpack_require__(414);
 
@@ -28967,12 +28979,12 @@ exports.default = _default;
 
 
 exports.__esModule = true;
+exports.HEADER_SPAN_CLASS = exports.DESC_SORT_STATE = exports.ASC_SORT_STATE = void 0;
 exports.areValidSortStates = areValidSortStates;
-exports.getNextSortOrder = getNextSortOrder;
 exports.getHeaderSpanElement = getHeaderSpanElement;
+exports.getNextSortOrder = getNextSortOrder;
 exports.isFirstLevelColumnHeader = isFirstLevelColumnHeader;
 exports.wasHeaderClickedProperly = wasHeaderClickedProperly;
-exports.HEADER_SPAN_CLASS = exports.DESC_SORT_STATE = exports.ASC_SORT_STATE = void 0;
 
 var _mixed = __webpack_require__(15);
 
@@ -29101,7 +29113,7 @@ function wasHeaderClickedProperly(row, column, clickEvent) {
 
 exports.__esModule = true;
 exports.getCompareFunctionFactory = getCompareFunctionFactory;
-exports.getRootComparator = exports.registerRootComparator = void 0;
+exports.registerRootComparator = exports.getRootComparator = void 0;
 
 var _default = __webpack_require__(437);
 
@@ -29708,9 +29720,9 @@ Handsontable.DefaultSettings = _defaultSettings.default;
 Handsontable.EventManager = _eventManager.default;
 Handsontable._getListenersCounter = _eventManager.getListenersCounter; // For MemoryLeak tests
 
-Handsontable.buildDate = "01/10/2021 14:29:51";
+Handsontable.buildDate = "08/10/2021 12:36:37";
 Handsontable.packageName = "handsontable-custom";
-Handsontable.version = "6.2.3";
+Handsontable.version = "6.2.4";
 var baseVersion = "";
 
 if (baseVersion) {
@@ -38290,8 +38302,8 @@ function process(value, callback) {
 
 
 exports.__esModule = true;
-exports.default = dateValidator;
 exports.correctFormat = correctFormat;
+exports.default = dateValidator;
 
 var _moment = _interopRequireDefault(__webpack_require__(76));
 
@@ -39630,8 +39642,8 @@ exports.default = _default;
 
 
 exports.__esModule = true;
-exports.parseDelay = parseDelay;
 exports.default = void 0;
+exports.parseDelay = parseDelay;
 
 var _feature = __webpack_require__(47);
 
@@ -41368,8 +41380,8 @@ exports.default = _default;
 
 
 exports.__esModule = true;
-exports.registerPhraseFormatter = exports.register = register;
 exports.getPhraseFormatters = exports.getAll = getAll;
+exports.registerPhraseFormatter = exports.register = register;
 
 var _staticRegister2 = _interopRequireDefault(__webpack_require__(46));
 
@@ -44674,10 +44686,10 @@ exports.default = _default;
 
 
 exports.__esModule = true;
+exports.DIRECTIONS = void 0;
 exports.getDeltas = getDeltas;
 exports.getDragDirectionAndRange = getDragDirectionAndRange;
 exports.getMappedFillHandleSetting = getMappedFillHandleSetting;
-exports.DIRECTIONS = void 0;
 
 var _object = __webpack_require__(2);
 
@@ -46899,8 +46911,8 @@ exports.ColumnStatesManager = ColumnStatesManager;
 
 
 exports.__esModule = true;
-exports.getClassesToAdd = getClassesToAdd;
 exports.getClassedToRemove = getClassedToRemove;
+exports.getClassesToAdd = getClassesToAdd;
 
 var _utils = __webpack_require__(188);
 
@@ -47077,8 +47089,8 @@ function rootComparator(sortingOrders, columnMetas) {
 
 
 exports.__esModule = true;
-exports.compareFunctionFactory = compareFunctionFactory;
 exports.COLUMN_DATA_TYPE = void 0;
+exports.compareFunctionFactory = compareFunctionFactory;
 
 var _mixed = __webpack_require__(15);
 
@@ -47164,8 +47176,8 @@ exports.COLUMN_DATA_TYPE = COLUMN_DATA_TYPE;
 
 
 exports.__esModule = true;
-exports.compareFunctionFactory = compareFunctionFactory;
 exports.COLUMN_DATA_TYPE = void 0;
+exports.compareFunctionFactory = compareFunctionFactory;
 
 var _mixed = __webpack_require__(15);
 
@@ -47230,8 +47242,8 @@ exports.COLUMN_DATA_TYPE = COLUMN_DATA_TYPE;
 
 
 exports.__esModule = true;
-exports.compareFunctionFactory = compareFunctionFactory;
 exports.COLUMN_DATA_TYPE = void 0;
+exports.compareFunctionFactory = compareFunctionFactory;
 
 var _moment = _interopRequireDefault(__webpack_require__(76));
 
@@ -47316,8 +47328,8 @@ exports.COLUMN_DATA_TYPE = COLUMN_DATA_TYPE;
 
 
 exports.__esModule = true;
+exports.FIRST_BEFORE_SECOND = exports.FIRST_AFTER_SECOND = exports.DO_NOT_SWAP = void 0;
 exports.sort = sort;
-exports.FIRST_AFTER_SECOND = exports.FIRST_BEFORE_SECOND = exports.DO_NOT_SWAP = void 0;
 
 var _mergeSort = _interopRequireDefault(__webpack_require__(441));
 
@@ -49864,8 +49876,8 @@ exports.default = _default;
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 exports.__esModule = true;
-exports.default = alignmentItem;
 exports.KEY = void 0;
+exports.default = alignmentItem;
 
 var _utils = __webpack_require__(30);
 
@@ -50173,8 +50185,8 @@ function alignmentItem() {
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 exports.__esModule = true;
-exports.default = clearColumnItem;
 exports.KEY = void 0;
+exports.default = clearColumnItem;
 
 var _utils = __webpack_require__(30);
 
@@ -50241,8 +50253,8 @@ function clearColumnItem() {
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 exports.__esModule = true;
-exports.default = columnLeftItem;
 exports.KEY = void 0;
+exports.default = columnLeftItem;
 
 var _utils = __webpack_require__(30);
 
@@ -50314,8 +50326,8 @@ function columnLeftItem() {
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 exports.__esModule = true;
-exports.default = columnRightItem;
 exports.KEY = void 0;
+exports.default = columnRightItem;
 
 var _utils = __webpack_require__(30);
 
@@ -50387,8 +50399,8 @@ function columnRightItem() {
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 exports.__esModule = true;
-exports.default = readOnlyItem;
 exports.KEY = void 0;
+exports.default = readOnlyItem;
 
 var _utils = __webpack_require__(30);
 
@@ -50450,8 +50462,8 @@ function readOnlyItem() {
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 exports.__esModule = true;
-exports.default = redoItem;
 exports.KEY = void 0;
+exports.default = redoItem;
 
 var C = _interopRequireWildcard(__webpack_require__(11));
 
@@ -50487,8 +50499,8 @@ function redoItem() {
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 exports.__esModule = true;
-exports.default = removeColumnItem;
 exports.KEY = void 0;
+exports.default = removeColumnItem;
 
 var _utils = __webpack_require__(30);
 
@@ -50567,8 +50579,8 @@ function removeColumnItem() {
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 exports.__esModule = true;
-exports.default = removeRowItem;
 exports.KEY = void 0;
+exports.default = removeRowItem;
 
 var _utils = __webpack_require__(30);
 
@@ -50649,8 +50661,8 @@ function removeRowItem() {
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 exports.__esModule = true;
-exports.default = rowAboveItem;
 exports.KEY = void 0;
+exports.default = rowAboveItem;
 
 var _utils = __webpack_require__(30);
 
@@ -50698,8 +50710,8 @@ function rowAboveItem() {
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 exports.__esModule = true;
-exports.default = rowBelowItem;
 exports.KEY = void 0;
+exports.default = rowBelowItem;
 
 var _utils = __webpack_require__(30);
 
@@ -50747,8 +50759,8 @@ function rowBelowItem() {
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 exports.__esModule = true;
-exports.default = undoItem;
 exports.KEY = void 0;
+exports.default = undoItem;
 
 var C = _interopRequireWildcard(__webpack_require__(11));
 

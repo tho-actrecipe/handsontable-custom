@@ -3,16 +3,37 @@ const http = require('http');
 const ecstatic = require('ecstatic');
 const JasmineReporter = require('jasmine-terminal-reporter');
 
-const PORT = 7992;
+const PORT = 8086;
 const DEFAULT_INACTIVITY_TIMEOUT = 10000;
+const IS_CI = process.env.CI;
+const CI_DOTS_PER_LINE = 120;
 
-const [,, path] = process.argv;
+const [,, originalPath, flags] = process.argv;
+let path = originalPath;
+let verboseReporting = false;
 
-if (!path) {
+if (!originalPath) {
   /* eslint-disable no-console */
   console.log('The `path` argument is missing.');
 
   return;
+}
+
+if (flags) {
+  const seed = flags.match(/(--seed=)\d{1,}/g);
+  const random = flags.includes('random');
+  const params = [];
+
+  verboseReporting = flags.includes('verbose');
+
+  if (seed) {
+    params.push(`seed=${seed[0].replace('--seed=', '')}`);
+  }
+  if (seed || random) {
+    params.push('random=true');
+  }
+
+  path = `${path}?${params.join('&')}`;
 }
 
 const cleanupFactory = (browser, server) => async(exitCode) => {
@@ -32,11 +53,14 @@ const cleanupFactory = (browser, server) => async(exitCode) => {
   });
 
   const page = await browser.newPage();
+  // To emulate slower CPU you can uncomment next two lines. Docs: https://chromedevtools.github.io/devtools-protocol/tot/Emulation#method-setCPUThrottlingRate
+  // const client = await page.target().createCDPSession();
+  // await client.send('Emulation.setCPUThrottlingRate', { rate: 2 });
 
   page.setCacheEnabled(false);
   page.setViewport({
-    width: 1200,
-    height: 1000,
+    width: 1280,
+    height: 720,
   });
 
   const server = http.createServer(ecstatic({
@@ -54,11 +78,18 @@ const cleanupFactory = (browser, server) => async(exitCode) => {
     verbosity: 4,
     listStyle: 'flat',
     activity: true,
-    isVerbose: false,
+    isVerbose: verboseReporting,
+    includeStackTrace: true,
   });
   let errorCount = 0;
 
-  await page.exposeFunction('jasmineStarted', specInfo => reporter.jasmineStarted(specInfo));
+  await page.exposeFunction('jasmineStarted', (specInfo) => {
+    if (specInfo.order.random) {
+      process.stdout.write(`Randomized with seed ${specInfo.order.seed}\n`);
+    }
+
+    reporter.jasmineStarted(specInfo);
+  });
   await page.exposeFunction('jasmineSpecStarted', () => {});
   await page.exposeFunction('jasmineSuiteStarted', suite => reporter.suiteStarted(suite));
   await page.exposeFunction('jasmineSuiteDone', () => reporter.suiteDone());
@@ -67,6 +98,15 @@ const cleanupFactory = (browser, server) => async(exitCode) => {
       errorCount += result.failedExpectations.length;
     }
     reporter.specDone(result);
+
+    // Break the "dots" output into same-lenghed lines if on CI.
+    if (IS_CI) {
+      const dotIndex = parseInt(result.id.replace('spec', ''), 10);
+
+      if (dotIndex > 0 && (dotIndex + 1) % CI_DOTS_PER_LINE === 0) {
+        process.stdout.write('\n');
+      }
+    }
   });
   await page.exposeFunction('jasmineDone', async() => {
     reporter.jasmineDone();

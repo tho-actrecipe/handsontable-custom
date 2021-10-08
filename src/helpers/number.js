@@ -59,6 +59,7 @@ export function rangeEach(rangeFrom, rangeTo, iteratee) {
   } else {
     index = rangeFrom - 1;
   }
+  /* eslint-disable-next-line no-plusplus */
   while (++index <= rangeTo) {
     if (iteratee(index) === false) {
       break;
@@ -80,6 +81,7 @@ export function rangeEachReverse(rangeFrom, rangeTo, iteratee) {
     iteratee = rangeTo;
     rangeTo = 0;
   }
+  /* eslint-disable-next-line no-plusplus */
   while (--index >= rangeTo) {
     if (iteratee(index) === false) {
       break;
