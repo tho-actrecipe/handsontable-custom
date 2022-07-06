@@ -1,4 +1,5 @@
 // https://gist.github.com/paulirish/1579671
+/* eslint-disable no-restricted-globals */
 let lastTime = 0;
 const vendors = ['ms', 'moz', 'webkit', 'o'];
 let _requestAnimationFrame = window.requestAnimationFrame;
@@ -38,6 +39,17 @@ export function requestAnimationFrame(callback) {
   return _requestAnimationFrame.call(window, callback);
 }
 
+export function isClassListSupported() {
+  return !!document.documentElement.classList;
+}
+
+export function isTextContentSupported() {
+  return !!document.createTextNode('test').textContent;
+}
+
+export function isGetComputedStyleSupported() {
+  return !!window.getComputedStyle;
+}
 /**
  * Polyfill for cancelAnimationFrame
  *
@@ -125,4 +137,33 @@ export function getComparisonFunction(language, options = {}) {
   }
 
   return comparisonFunction;
+}
+
+let passiveSupported;
+/**
+ * Checks if browser supports passive events.
+ *
+ * @returns {Boolean}
+ */
+export function isPassiveEventSupported() {
+  if (passiveSupported !== void 0) {
+    return passiveSupported;
+  }
+
+  try {
+    const options = {
+      get passive() {
+        passiveSupported = true;
+      }
+    };
+
+    // eslint-disable-next-line no-restricted-globals
+    window.addEventListener('test', options, options);
+    // eslint-disable-next-line no-restricted-globals
+    window.removeEventListener('test', options, options);
+  } catch (err) {
+    passiveSupported = false;
+  }
+
+  return passiveSupported;
 }
