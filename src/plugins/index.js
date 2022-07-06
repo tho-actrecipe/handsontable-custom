@@ -19,6 +19,8 @@ import ObserveChanges from './observeChanges/observeChanges';
 import Search from './search/search';
 import TouchScroll from './touchScroll/touchScroll';
 import UndoRedo from './undoRedo/undoRedo';
+import DropdownMenu from './dropdownMenu/dropdownMenu';
+import Filters from './filters/filters';
 import Base from './_base';
 
 export {
@@ -43,5 +45,7 @@ export {
   Search,
   TouchScroll,
   UndoRedo,
+  DropdownMenu,
+  Filters,
   Base,
 };
