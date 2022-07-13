@@ -9,7 +9,7 @@
     "url": "https://github.com/tho-asterist/handsontable-custom/issues"
   },
   "author": "Handsoncode and Tho Nguyen",
-  "version": "6.2.4",
+  "version": "6.4.0",
   "browser": "dist/handsontable.js",
   "main": "commonjs/index.js",
   "module": "es/index.js",
@@ -58,9 +58,9 @@
     "data-spreadsheet"
   ],
   "dependencies": {
-    "moment": "2.29.2",
-    "numbro": "^2.3.5",
-    "pikaday": "1.8.2"
+    "moment": "^2.29.4",
+    "numbro": "^2.3.6",
+    "pikaday": "^1.8.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.15.7",
